@@ -1,0 +1,94 @@
+#player-panel {
+	border-top: 1px solid #656565;
+	.linear-gradient(top, bottom, #4D4D4D, #363636);
+	position: relative;
+	height: 50px;
+	overflow: hidden;
+
+
+	.controls-left,
+	.controls-center,
+	.controls-right {
+		float: left;
+
+		ul {
+			display: inline-block;
+			list-style: none;
+
+			li {
+				display: inline-block;
+				float: left;
+
+				a {
+					padding: 15px 10px;
+					display: inline-block;
+					color: #aaa;
+
+					&.active {
+						i {
+							color: @mainColor;
+						}
+					}
+
+					i {
+						font-size: 18px;
+						width: 15px;
+						display: block;
+					}
+				}
+			}
+		}
+	}
+
+
+	.controls-left {
+		width: 240px;
+
+		ul {
+			padding-left: 10px;
+			position: relative;
+
+			#music-volume {
+				width: 80px;
+				position: relative;
+				border-radius: 8px;
+
+				a {
+					padding: 0px
+				}
+			}
+
+			i.volume-indicator  {
+				display: inline-block;
+				position: relative;
+				top: 14px;
+				left: 5px;
+			}
+		}
+	}
+
+	.controls-center {
+		width: 65%;
+		padding-left: 50px;
+
+		span {
+			position: absolute;
+			font-size: 11px;
+			top: -3px;
+			color: #999999;
+
+			&#time-spend {
+				left: -40px;
+			}
+			&#time-total {
+				right: -30px;
+			}
+		}
+	}
+
+	.controls-right {
+		width: 120px;
+		float: right;
+	}
+
+}

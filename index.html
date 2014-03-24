@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Subsonic Touch</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<link rel="shortcut icon" href="img/favicon.ico" >
+
+	<link href="css/styles.css" rel="stylesheet">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	<script src="/js/html5shiv.js"></script>
+	<![endif]-->
+
+	<!-- Fav and touch icons -->
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+	<link rel="shortcut icon" href="ico/favicon.png">
+
+	<script src="scripts/thirdparty/jquery/jquery.js"></script>
+	<script src="scripts/thirdparty/jquery/jquery-ui-1.10.3.custom.js"></script>
+	<script src="scripts/thirdparty/jquery/jquery.mCustomScrollbar.js"></script>
+	<script src="scripts/thirdparty/jquery/jquery.nouislider.js"></script>
+	<script src="scripts/thirdparty/jquery/jquery.contextMenu.js"></script>
+	<script src="scripts/thirdparty/jquery/jquery.prettynumber.js"></script>
+	<script src="scripts/thirdparty/momentjs/moment.min.js"></script>
+	<script src="scripts/thirdparty/soundmanager/soundmanager2.js"></script>
+	<script src="scripts/thirdparty/watch/watch.js"></script>
+	<script src="scripts/thirdparty/typeahead/typeahead.js"></script>
+	<script src="scripts/thirdparty/underscore/underscore-min.js"></script>
+	<script src="scripts/thirdparty/bootstrap/bootstrap.min.js"></script>
+
+	<script src="scripts/subsonic-persistence.js"></script>
+	<script src="scripts/api/lastfm-api.js"></script>
+	<script src="scripts/api/subsonic-api.js"></script>
+	<script src="scripts/api/soundmanager-api.js"></script>
+
+	<script src="scripts/element/el-grid.js"></script>
+	<script src="scripts/element/el-original-state.js"></script>
+	<script src="scripts/element/el-behaviour-management.js"></script>
+	<script src="scripts/element/el-searchbar.js"></script>
+	<script src="scripts/element/el-music-control.js"></script>
+	<script src="scripts/element/el-artist-accordion.js"></script>
+	<script src="scripts/element/el-album-view.js"></script>
+	<script src="scripts/element/el-currently-playing.js"></script>
+	<script src="scripts/element/el-playlist.js"></script>
+	<script src="scripts/element/el-context-menu.js"></script>
+	<script src="scripts/element/el-custom-scrollbar.js"></script>
+	<script src="scripts/element/el-top-tracks.js"></script>
+	<script src="scripts/element/el-table-filter.js"></script>
+	<script src="scripts/element/el-settings.js"></script>
+	<script src="scripts/element/el-star-view.js"></script>
+	<script src="scripts/element/el-dj-random.js"></script>
+	<script src="scripts/element/el-shortcuts.js"></script>
+
+	<script src="scripts/subsonic-app.js"></script>
+	<script src="scripts/subsonic-functions.js"></script>
+</head>
+
+<body class="view-container">
+
+	<section class="view-top">
+		<div id="navigation-panel" class="navbar navbar-inverse">
+			<form class="searchform pull-left" action="">
+				<input type="text" id="search" class="form-control col-lg-8" placeholder="Search">
+				<button type="button" id="search-button" class="btn search"></button>
+				<div id="loader">
+					<div id="blockG_1" class="facebook_blockG">
+					</div>
+					<div id="blockG_2" class="facebook_blockG">
+					</div>
+					<div id="blockG_3" class="facebook_blockG">
+					</div>
+				</div>
+			</form>
+			<div class="nav-collapse collapse navbar-inverse-collapse">
+				<ul class="nav navbar-nav pull-right">
+					<li><a id="settings-trigger"><i class="icon-cog"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="view-center">
+
+		<section class="view-left">
+			<div id="artist-panel">
+
+				<div id="show-starred" class="starred">
+					<i class="icon-star"></i><span>Starred</span>
+				</div>
+				<div id="show-playlists" class="playlists">
+					<i class="icon-reorder"></i><span>Playlists</span>
+				</div>
+				<div id="dj-random" class="djrandom">
+					<i class="icon-random"></i><span>DJ Random</span>
+				</div>
+
+
+				<div class="accordion" id="artist-accordion"></div>
+
+				<div class="information-panel" id="information-panel">
+					<img id="now-playing-cover"src="img/no_album.png" alt=""/>
+					<div id="artist-info">
+						<div class="song-name">
+							<a href="#"></a>
+						</div>
+						<div class="artist-name">
+							<a href="#"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="view-main">
+
+			<section class="view-main-top">
+				<div class="artist-albums">
+					<span class="inapp-logo"></span>
+				</div>
+			</section>
+
+			<section class="view-main-bottom">
+				<div class="playlist">
+					<div id="playlist-navigation" class="navbar navbar-inverse">
+						<div class="nav-collapse collapse navbar-inverse-collapse">
+							<ul class="nav navbar-nav">
+								<li class="playlist-count badge" data-time="0"><span class="tracks">0 Tracks</span> / <span class="time">0:00</span></li>
+							</ul>
+							<ul class="nav navbar-nav pull-right">
+								<li><a id="music-playlist" href="#"><i class="icon-th-list"></i></a></li>
+								<li><a id="queue-shuffle" href="#"><i class="icon-random"></i></a></li>
+								<li><a id="queue-clear" href="#"><i class="icon-remove"></i></a></li>
+							</ul>
+						</div>
+					</div>
+
+					<table class="table playlist-table table-condensed table-striped album-table dark">
+						<tbody></tbody>
+					</table>
+				</div>
+			</section>
+
+		</section>
+
+	</section>
+
+
+	<section class="view-bottom">
+		<div id="player-panel">
+			<div class="controls-left">
+				<ul>
+					<li><a id="music-prev" href="#"><i class="icon-backward"></i></a></li>
+					<li><a id="music-play" href="#"><i class="icon-play"></i></a></li>
+					<li><a id="music-next" href="#"><i class="icon-forward"></i></a></li>
+					<li><div id="music-volume" class="slider"></div></li>
+					<li><i class="volume-indicator icon-volume-up"></i></li>
+				</ul>
+			</div>
+
+			<div class="controls-center">
+				<div id="music-progress-bar" class="slider">
+					<span id="time-spend">0:00</span>
+					<span id="time-total">0:00</span>
+				</div>
+			</div>
+
+			<div class="controls-right">
+				<ul>
+					<li><a id="music-shuffle" href="#"><i class="icon-random"></i></a></li>
+					<li><a id="music-repeat" href="#"><i class="icon-repeat"></i></a></li>
+				</ul>
+			</div>
+		</div>
+
+	</section>
+
+	<div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="settingsLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Server Settings</h4>
+				</div>
+				<div class="modal-body">
+					<form method="post" id="dropdown-login" action="login" accept-charset="UTF-8">
+						<div class="row col-lg-12">
+							<input class="form-control server" type="text" placeholder="Server" id="server" name="server">
+						</div>
+						<div class="row">
+							<div class="col-lg-6"><input class="form-control username" type="text" placeholder="Username" id="username" name="username"></div>
+							<div class="col-lg-6"><input class="form-control password" type="password" placeholder="Password" id="password" name="password"></div>
+						</div>
+						<div class="row">
+							<div class="col-lg-6"><button type="button" class="btn connection">Test Connection</button></div>
+							<div class="col-lg-6">
+								<i class="icon-ok ok">Connection established!</i>
+								<i class="icon-remove fail">Connection failed!</i>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<div class="row">
+						<div class="col-lg-6">
+							<button type="button" class="btn testserver">Set Test-Server</button>
+						</div>
+						<div class="col-lg-6">
+							<button type="button" class="btn" data-dismiss="modal">Discard</button>
+							<button type="button" class="btn save">Save changes</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

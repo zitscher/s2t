@@ -1,0 +1,104 @@
+@import "../bootstrap/variables.less";
+@import "../mixins.less";
+@import "../bootstrap/mixins.less";
+
+.searchform {
+	position: relative;
+
+	button {
+		position: absolute;
+		right: 0px;
+		top: 8px;
+		border-radius: 0px;
+		background-color: @mainColor;
+		width: 38px;
+		height: 34px;
+
+		&:after {
+			position: absolute;
+			width: 35px;
+			height: 34px;
+			top: 0px;
+			right: 0px;
+			font-family: FontAwesome;
+			-webkit-font-smoothing: antialiased;
+			font-size: 12px;
+			text-align: center;
+			color: #fff;
+			line-height: 30px;
+		}
+
+		&.search:after {
+			content: "\f002";
+		}
+		&.delete:after {
+			content: "\f00D";
+		}
+	}
+
+	&:focus {
+		border-color: transparent;
+	}
+
+	#search,
+	.tt-hint {
+		margin-top: 8px;
+		width: 250px;
+		font-size: 12px;
+
+		&:focus {
+			border-color: transparent;
+		}
+	}
+
+	.tt-hint {
+		width: 100%;
+		height: 34px;
+		padding: 6px 11px;
+		font-size: 12px;
+		line-height: 1.428571429;
+		color: #ccc;
+		vertical-align: middle;
+		background-color: #fff;
+		border-radius: 2px;
+	}
+
+
+	.tt-dropdown-menu {
+		top: 41px !important;
+		min-width: 250px;
+		margin-top: 0px;
+		padding: 0px;
+		background-color: @dropdown-bg;
+		border: none;
+		border-radius: 0px 0px 3px 3px;
+		.box-shadow(0 5px 10px rgba(0,0,0,.5));
+		-webkit-background-clip: padding-box;
+		-moz-background-clip: padding;
+		background-clip: padding-box;
+		border-top: none;
+	}
+
+	.tt-suggestion {
+		display: block;
+		padding: 3px 20px;
+		font-size: 12px;
+
+		&:last-of-type {
+			border-radius: 0px 0px 2px 2px;
+		}
+	}
+
+	.tt-suggestion.tt-is-under-cursor {
+		color: @dropdown-link-hover-color;
+		background: @mainColor;
+	}
+
+	.tt-suggestion.tt-is-under-cursor a {
+		color: @dropdown-bg;
+	}
+
+	.tt-suggestion p {
+		margin: 0;
+	}
+}

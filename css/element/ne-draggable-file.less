@@ -1,0 +1,55 @@
+.draggableMusicFile {
+	width: 30px !important;
+	height: 30px !important;
+	background: @mainColor;
+	position: absolute;
+	-webkit-transform: rotate(5deg);
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	opacity: 0.8;
+	-webkit-backface-visibility: hidden;
+
+	span {
+		position: absolute;
+		width: 20px !important;
+		height: 10px !important;
+		background: @mainColor;
+		top: -9px;
+		left: -1px;
+		border-left: 1px solid #ccc;
+		border-right: 1px solid #ccc;
+		border-top: 1px solid #ccc;
+
+		&:after {
+			content: "";
+			display: block;
+			width: 0;
+			border-left: 0px solid transparent;
+			border-right: 10px solid transparent;
+			border-bottom: 10px solid #CFCFCF;
+			position: relative;
+			left: 19px;
+			top: -1px;
+			-webkit-box-shadow: -2px 2px 3px -1px rgba(0, 0, 0, 0.32);
+			box-shadow: -2px 2px 3px -1px rgba(0, 0, 0, 0.32);
+		}
+	}
+
+	&:after {
+		content:"\f001";
+		position: relative;
+		top: 0px;
+		left: 0px;
+		height: 100%;
+		width: 100%;
+		display: block;
+		font-family: FontAwesome;
+		-webkit-font-smoothing: antialiased;
+		text-align: center;
+		line-height: 25px;
+		font-size: 15px;
+		color: #222;
+	}
+
+}

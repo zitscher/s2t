@@ -1,0 +1,86 @@
+.slider-container {
+	.linear-gradient(top, bottom, #2B2B2B, #1C1C1C);
+	border-bottom: 1px solid #505050;
+	padding-left: 10px;
+	border-radius: 12px;
+	margin-top: 19px;
+
+	.slider {
+		position: relative;
+		width: 100%;
+		height: 10px;
+		cursor: pointer;
+		.linear-gradient(top, bottom, #2B2B2B, #1C1C1C);
+		border-radius: 8px;
+		cursor: pointer;
+
+		&.horizontal {
+			height: 10px;
+
+			div {
+				margin: -5px 0 0 -10px;
+			}
+
+			a {
+				height: 100%;
+				right: 0;
+			}
+		}
+
+		//Handle
+		div {
+			position: relative;
+			top: 5px;
+			cursor: pointer;
+			width: 10px;
+			height: 10px;
+			background: #D8D8D8;
+			border-radius: 12px;
+			outline: none;
+
+			&:focus {
+				outline:none;
+			}
+		}
+
+		a {
+			position: absolute;
+			z-index: 1;
+
+			&:nth-child(2) {
+				background: inherit !important;
+			}
+		}
+
+	}
+}
+
+
+
+
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.slider:before,
+	body.TOUCH,
+	.slider div {
+		-ms-touch-action: none;
+	}
+
+	.slider:before {
+		display: block;
+		position: absolute;
+		width: 150%;
+		left: -25%;
+		height: 400%;
+		top: -150%;
+		content: "";
+		z-index: -1;
+	}
+
+	.slider.vertical:before {
+		width: 400%;
+		left: -150%;
+		height: 150%;
+		top: -25%;
+	}
+}

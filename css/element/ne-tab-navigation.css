@@ -1,0 +1,73 @@
+ul.nav.nav-tabs {
+  background: #474747;
+  position: fixed;
+  width: 100%;
+  top: 51px;
+  padding-left: 15px;
+  border-bottom: 1px solid #292929;
+  border-top: 1px solid #656565;
+  z-index: 20;
+}
+ul.nav.nav-tabs li {
+  border-radius: 0px;
+}
+ul.nav.nav-tabs li.filter {
+  float: right;
+  position: relative;
+  margin-right: 15px;
+}
+ul.nav.nav-tabs li.filter .search {
+  position: absolute;
+  right: 15px;
+  top: 31px;
+}
+ul.nav.nav-tabs li.filter .search.hidden {
+  display: none;
+}
+ul.nav.nav-tabs li.filter .search input {
+  height: 34px;
+  padding: 6px 11px;
+  font-size: 12px;
+  line-height: 1.428571429;
+  color: #343434;
+  vertical-align: middle;
+  width: 200px;
+  border-radius: 0px;
+  z-index: 10;
+  border-top: 0px;
+}
+ul.nav.nav-tabs li.filter .search input:focus {
+  -webkit-box-shadow: none;
+  border-color: #ddd;
+}
+ul.nav.nav-tabs li.filter .search i {
+  color: D6DDDD;
+  position: absolute;
+  right: 7px;
+  top: 10px;
+  cursor: pointer;
+}
+ul.nav.nav-tabs li a {
+  border-radius: 0px;
+  background: transparent;
+  color: #D6DDDD;
+  margin: 4px 0px 0px 0px;
+  border: 1px solid transparent;
+  font-size: 12px;
+  padding: 4px 12px 4px 12px;
+}
+ul.nav.nav-tabs li a i {
+  padding-right: 10px;
+}
+ul.nav.nav-tabs li a:hover i {
+  color: #d6284f;
+}
+ul.nav.nav-tabs li.active a {
+  background: #ECEBE8;
+  color: #343434;
+  border-top: 1px solid #292929;
+  border-left: 1px solid #292929;
+}
+ul.nav.nav-tabs li.active a i {
+  color: #d6284f;
+}

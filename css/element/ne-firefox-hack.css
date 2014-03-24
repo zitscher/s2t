@@ -1,0 +1,21 @@
+scrollbar {
+  /*  clear useragent default style*/
+
+  -moz-appearance: none !important;
+}
+/* buttons at two ends */
+scrollbarbutton {
+  -moz-appearance: none !important;
+}
+/* the sliding part*/
+thumb {
+  -moz-appearance: none !important;
+}
+scrollcorner {
+  -moz-appearance: none !important;
+  resize: both;
+}
+/* vertical or horizontal */
+scrollbar[orient="vertical"] {
+  color: silver;
+}
